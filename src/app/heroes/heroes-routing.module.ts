@@ -11,10 +11,10 @@ const routes: Routes = [
     path: '',
     component: LayoutPageComponent,
     children: [
-      { path: 'new-hero', component: NewPageComponent },
-      { path: 'search', component: SearchPageComponent },
-      { path: 'edit/:id', component: NewPageComponent },
-      { path: 'list', component: ListPageComponent },
+      { path: 'new-hero', component: NewPageComponent , data: {rutaActivaTitle: 'nuevo heroe'} },
+      { path: 'search', component: SearchPageComponent, data: {rutaActivaTitle: 'Buscar Héroes'} },
+      { path: 'edit/:id', component: NewPageComponent, data: {rutaActivaTitle: 'Editar Héroes'} },
+      { path: 'list', component: ListPageComponent, data: {rutaActivaTitle: 'Listado de Héroes'} },
       { path: ':id', component: HeroPageComponent },
       { path: '**', redirectTo: 'list' },
     ]
