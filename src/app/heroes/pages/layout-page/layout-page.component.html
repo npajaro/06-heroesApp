@@ -11,19 +11,22 @@
 </mat-toolbar>
 
 <mat-sidenav-container  >
-  <mat-sidenav mode="side" opened #sidenav> ...
+  <mat-sidenav mode="side" opened #sidenav>
+    Hellow
     <mat-nav-list>
 
-      <mat-list-item class="text-white"
+      <button mat-button class="menu-button"
       *ngFor="let item of sidebarItems"
       [routerLink]="item.url"
       (click)="sidenav.toggle()"
       >
         <mat-icon matListItemIcon> {{item.icon }} </mat-icon>
         {{item.label}}
-      </mat-list-item>
+      </button>
+
 
     </mat-nav-list>
+    <mat-divider></mat-divider>
   </mat-sidenav>
 
   <mat-sidenav-content>
