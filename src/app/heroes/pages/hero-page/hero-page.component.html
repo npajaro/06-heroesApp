@@ -1,1 +1,15 @@
-<p>hero-page works!</p>
+
+
+
+<ng-template #divLoading>
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+
+
+
+
+<div *ngIf="hero; else divLoading" class="grid">
+    <mat-card class="col-2 sm:col-6">
+
+    </mat-card>
+</div>
