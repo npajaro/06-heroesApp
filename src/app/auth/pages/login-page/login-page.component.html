@@ -1,0 +1,29 @@
+
+<div class="flex flex-column">
+
+  <span class="text-lg mb-4">Login</span>
+
+  <mat-form-field>
+    <mat-label>Usuario</mat-label>
+    <input [type]="hide ? 'text' : 'text'" matInput placeholder="Nombre de usuario">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Contraseña</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'"  placeholder="Ingresa tu contraseña">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">
+    <mat-icon>login</mat-icon>
+    Ingresar
+  </button>
+
+  <div class="flex justify-content-end mt-5">
+    <a routerLink="/auth/new-account">¿Ya tienes cuenta? </a>
+  </div>
+
+
+</div>
