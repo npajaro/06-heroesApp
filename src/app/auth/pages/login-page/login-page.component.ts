@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
   public hide: boolean = true;

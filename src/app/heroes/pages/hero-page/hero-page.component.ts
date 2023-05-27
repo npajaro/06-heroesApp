@@ -7,7 +7,12 @@ import { Hero } from '../../interfaces/hero.interface';
 @Component({
   selector: 'app-hero-page',
   templateUrl: './hero-page.component.html',
-  styles: [
+  styles: [`
+    .custom-card {max-width: 650px;}
+    .custom-card2{flex: 1;}
+    .grid {display: flex;}
+    .custom-card img {box-shadow: 0px 0px 4px;}
+    `
   ]
 })
 export class HeroPageComponent implements OnInit {
@@ -23,12 +28,16 @@ export class HeroPageComponent implements OnInit {
   ngOnInit(): void {
     this.activateRouter.params
     .pipe(
-      delay(1000),
+      delay(800),
       switchMap( ({ id }) => this.heroesService.getHeroById( id ) ),
     ).subscribe( hero => {
       if ( !hero) return this.router.navigateByUrl('/heroes/list')
       this.hero = hero;
       return
     })
+  }
+
+  goBack():void {
+    this.router.navigateByUrl('heroes/list')
   }
 }

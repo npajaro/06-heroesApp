@@ -1,21 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { delay, filter } from 'rxjs';
+
 
 @Component({
   selector: 'heroes-layout-page',
   templateUrl: './layout-page.component.html',
   styleUrls: ['./layout-page.component.css']
 })
+@UntilDestroy()
 export class LayoutPageComponent implements OnInit {
+
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
 
   public titleSeccion: string = '';
 
-  constructor (
+  constructor(
+    private observer: BreakpointObserver,
     private activastedRouter: ActivatedRoute,
-    private router: Router,) {}
+    private router: Router,) { }
+
+  ngAfterViewInit() {
+    this.observer
+      .observe(['(max-width: 1500px)'])
+      .pipe(delay(1), untilDestroyed(this))
+      .subscribe((res) => {
+        if (res.matches) {
+          this.sidenav.mode = 'over';
+          this.sidenav.close();
+        } else {
+          this.sidenav.mode = 'side';
+          this.sidenav.open();
+        }
+      });
+
+    this.router.events
+      .pipe(
+        untilDestroyed(this),
+        filter((e) => e instanceof NavigationEnd)
+      )
+      .subscribe(() => {
+        if (this.sidenav.mode === 'over') {
+          this.sidenav.close();
+        }
+      });
+  }
 
   ngOnInit(): void {
-    this.router.events.subscribe(()=>{
+    this.router.events.subscribe(() => {
       this.activastedRouter.children[0].data.subscribe((dataRouter) => {
         this.titleSeccion = dataRouter["rutaActivaTitle"];
       })
@@ -27,5 +63,6 @@ export class LayoutPageComponent implements OnInit {
     { label: 'Añadir', icon: 'add', url: './new-hero' },
     { label: 'Buscar', icon: 'search', url: './search' },
   ]
+
 
 }

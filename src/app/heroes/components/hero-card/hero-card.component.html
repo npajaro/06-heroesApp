@@ -1,7 +1,7 @@
 <mat-card class="max-w-25rem">
   <mat-card-header>
     <div mat-card-avatar [ngStyle]="{
-      'background-image': 'url(' + (hero | actorsImage) + ')',
+      'background-image': 'url(' + (hero | heroAvatar) + ')',
       'background-size':'cover'}">
     </div>
     <mat-card-title> {{ hero.superhero }} </mat-card-title>
@@ -18,7 +18,7 @@
     <p>
       <strong>Primera aparición:</strong> {{ hero.first_appearance }}
       <br>
-      <mat-chip-listbox>
+      <mat-chip-listbox class="chip-container">
         <mat-chip *ngFor="let name of hero.characters.split(',') | slice:0:3">
           {{ name }}
         </mat-chip>

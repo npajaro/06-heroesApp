@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { HeroPageComponent } from './pages/hero-page/hero-page.component';
@@ -10,7 +11,9 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MaterialModule } from '../material/material.module';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
-import { ActorsImagePipe } from './pipes/actors-image.pipe';
+import { HeroAvatarPipe } from './pipes/actors-image.pipe';
+import { RouterModule } from '@angular/router';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -23,11 +26,14 @@ import { ActorsImagePipe } from './pipes/actors-image.pipe';
     HeroCardComponent,
 
     //Pipes
-    ActorsImagePipe,
+    HeroAvatarPipe,
     HeroImagePipe,
+    ConfirmDialogComponent,
   ],
   imports: [
+    RouterModule,
     CommonModule,
+    ReactiveFormsModule,
     HeroesRoutingModule,
     MaterialModule,
   ]

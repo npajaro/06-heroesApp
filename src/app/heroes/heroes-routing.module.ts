@@ -11,7 +11,7 @@ const routes: Routes = [
     path: '',
     component: LayoutPageComponent,
     children: [
-      { path: 'new-hero', component: NewPageComponent , data: {rutaActivaTitle: 'nuevo heroe'} },
+      { path: 'new-hero', component: NewPageComponent , data: {rutaActivaTitle: 'Nuevo Héroes'} },
       { path: 'search', component: SearchPageComponent, data: {rutaActivaTitle: 'Buscar Héroes'} },
       { path: 'edit/:id', component: NewPageComponent, data: {rutaActivaTitle: 'Editar Héroes'} },
       { path: 'list', component: ListPageComponent, data: {rutaActivaTitle: 'Listado de Héroes'} },

@@ -1,6 +1,3 @@
-
-
-
 <ng-template #divLoading>
 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </ng-template>
@@ -9,7 +6,46 @@
 
 
 <div *ngIf="hero; else divLoading" class="grid">
-    <mat-card class="col-2 sm:col-6">
+    <mat-card class="col-12 sm:col-6 md:col-6 xl:col-6 custom-card">
+
+      <mat-card-header>
+        <div mat-card-avatar [ngStyle]="{
+          'background-image': 'url(' + (hero | heroAvatar) + ')',
+          'background-size':'cover'}"></div>
+        <mat-card-title> {{ hero.alter_ego }} </mat-card-title>
+        <mat-card-subtitle> {{hero.superhero}} </mat-card-subtitle>
+      </mat-card-header>
+
+      <img mat-card-image [src]=" hero | heroImage " alt="hero.superhero" [alt]="hero.superhero">
+    </mat-card>
+
+    <mat-card class="col-12 sm:col-6 md:col-6 xl:col-6 custom-card2">
+      <mat-card-header>
+        <mat-card-title> Información </mat-card-title>
+        <mat-card-subtitle> {{ hero.superhero }} </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-list class="mb-2">
+
+          <mat-list-item class="mb-4" > <strong class="font-italic">Primera Aparicion</strong> <br> {{ hero.first_appearance }} </mat-list-item>
+          <mat-list-item class="mb-4" > <strong class="font-italic">Interpretado</strong> <br> {{ hero.characters }} </mat-list-item>
+          <mat-list-item class="mb-4" > <strong class="font-italic">Editorial</strong> <br> {{ hero.publisher }} </mat-list-item>
+          <mat-list-item class="mb-4" > <strong class="font-italic">Otro nombre</strong> <br> {{ hero.alter_ego }} </mat-list-item>
+        </mat-list>
+
+
+
+        <button class=""
+          mat-flat-button
+          color="warn"
+          (click)="goBack()"
+        >Regresar
+        <mat-icon>arrow_back</mat-icon>
+        </button>
+
+
+      </mat-card-content>
 
     </mat-card>
 </div>

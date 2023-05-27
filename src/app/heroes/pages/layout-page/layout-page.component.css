@@ -2,12 +2,34 @@ mat-sidenav {
   margin: 16px;
   width: 200px;
   border-right: none;
-  background: #391c6c;
+  background: #a280dc;
   color: white;
   border-radius: 10px;
   padding: 16px;
   text-align: center;
 }
+
+/* .mat-mdc-button:not(:disabled) {
+  color: var(--mdc-text-button-label-text-color, inherit);
+} */
+
+mat-sidenav .mat-button {
+  color: white;
+}
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+  }
+
+.mat-mdc-focus-indicator{
+  background-color: transparent !important;
+}
+
+.menu-button.active {
+  background-color: #fff; /* Aplica el estilo de resalte deseado */
+  color: #000; /* Cambia el color de texto para que sea legible */
+}
+
 
 .content {
   height: calc(100% - 98px);
@@ -15,8 +37,12 @@ mat-sidenav {
   border-radius: 10px;
   margin: 16px;
   margin-left: 32px;
-
   padding: 10px;
+  background: #f0eef4;
+
+}
+mat-sidenav-container {
+  height: calc(100vh - 65px);
 }
 
 .title-content{
@@ -36,7 +62,7 @@ mat-sidenav-container {
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
-  color: aliceblue;
+
 }
 
 mat-icon {
@@ -51,12 +77,12 @@ mat-icon {
 }
 
 .name {
-  margin-top: 8px;
+  margin-top: 2px;
   font-weight: normal;
 }
 
 .designation {
-  margin-top: 2px;
+  visibility: none;
   font-size: 0.7rem;
   color: lightgrey;
 }

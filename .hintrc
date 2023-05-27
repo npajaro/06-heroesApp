@@ -15,6 +15,7 @@
         "link-name": "off",
         "button-name": "off"
       }
-    ]
+    ],
+    "detect-css-reflows/composite": "off"
   }
 }

@@ -4,7 +4,15 @@ import { Hero } from '../../interfaces/hero.interface';
 @Component({
   selector: 'heroes-hero-card',
   templateUrl: './hero-card.component.html',
-  styles: [ `` ]
+  styles: [ `.chip-container {
+    max-width: 200px; /* Ajusta este valor según tus necesidades */
+  }
+
+  mat-chip {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  }` ]
 })
 export class HeroCardComponent implements OnInit{
 
