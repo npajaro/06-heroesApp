@@ -8,7 +8,9 @@
   <span >Heroes App</span>
   <span class="spacer"></span>
 
-  <button mat-icon-button >
+  <span>{{ user?.email }}</span>
+
+  <button mat-icon-button (click)="onLogout()">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>
@@ -17,7 +19,7 @@
   <mat-sidenav #sidenav="matSidenav" opened class="mat-elevation-z8" >
     <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" alt="Imagen"/>
 
-    <h1 class="text-lg mt-10">John Smith </h1>
+    <h1 class="text-lg mt-10"> {{ user?.email }} </h1>
     <button mat-button class="designation">
       Software Engineer
     </button>

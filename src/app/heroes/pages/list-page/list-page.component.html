@@ -1,13 +1,19 @@
 
 
 
-<div class="grid mb-8 pt-2">
+<div class="row mb-3 pt-2">
+  <div *ngFor="let heroe of heroes"
+    class="col-12 col-sm-4 col-md-4 col-xl-2 ">
+    <heroes-hero-card [hero]="heroe"></heroes-hero-card>
+  </div>
+</div>
+
+<!-- <div class="grid mb-8 pt-2">
 
   <div *ngFor="let heroe of heroes"
     class="col-12 sm:col-4 md:col-3 xl:col-2">
     <heroes-hero-card [hero]="heroe"></heroes-hero-card>
   </div>
 
-</div>
-|
+</div> -->
 

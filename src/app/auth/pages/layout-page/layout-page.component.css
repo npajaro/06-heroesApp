@@ -1,0 +1,57 @@
+body {
+  overflow: hidden; /* Oculta la barra de desplazamiento del cuerpo de la página */
+}
+
+.grid {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    height: 100vh; /* Opcional: establece la altura del contenedor según tus necesidades */
+
+  }
+
+.row {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+  height: calc(100vh - 10em);
+  width: calc(100vw + 0em);
+  /* Habilita el desplazamiento interno si el contenido excede el tamaño de la fila */
+}
+
+.container-login100 {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.wrap-login100 {
+  width: 800px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+  padding: 33px;
+}
+
+.col-12 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

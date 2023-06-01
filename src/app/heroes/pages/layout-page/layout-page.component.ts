@@ -4,6 +4,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { delay, filter } from 'rxjs';
+import { User } from 'src/app/auth/interfaces/user-interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class LayoutPageComponent implements OnInit {
   constructor(
     private observer: BreakpointObserver,
     private activastedRouter: ActivatedRoute,
+    private authService: AuthService,
     private router: Router,) { }
 
   ngAfterViewInit() {
@@ -63,6 +66,15 @@ export class LayoutPageComponent implements OnInit {
     { label: 'Añadir', icon: 'add', url: './new-hero' },
     { label: 'Buscar', icon: 'search', url: './search' },
   ]
+
+  get user():User | undefined {
+    return this.authService.currentUser;
+  }
+
+  onLogout(): void {
+    this.authService.logout();
+    this.router.navigate(['/auth/login'])
+  }
 
 
 }

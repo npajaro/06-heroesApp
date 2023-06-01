@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,5 +10,19 @@ import { Component } from '@angular/core';
 })
 export class LoginPageComponent {
   public hide: boolean = true;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    ) {}
+
+  onLogin(): void {
+
+    this.authService.login('nehemias.pajaro@hotmail.com', '123456')
+      .subscribe( user => {
+        console.log('Hola Tokent', user.id)
+        this.router.navigateByUrl('/heroes/list');
+    } )
+  }
 
 }
