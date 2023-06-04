@@ -20,7 +20,6 @@ export class LoginPageComponent {
 
     this.authService.login('nehemias.pajaro@hotmail.com', '123456')
       .subscribe( user => {
-        console.log('Hola Tokent', user.id)
         this.router.navigateByUrl('/heroes/list');
     } )
   }
